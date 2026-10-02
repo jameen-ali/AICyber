@@ -1,0 +1,52 @@
+# Virtual environments
+AICS_venv/
+venv/
+.venv/
+env/
+.env/
+
+# Node & Frontend dependencies and builds
+node_modules/
+frontend/node_modules/
+dist/
+frontend/dist/
+build/
+frontend/build/
+.npm/
+
+# Environment variables & local secrets
+.env
+.env.local
+.env.*.local
+
+# Python cache & bytecode
+__pycache__/
+backend/__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+*.pyo
+
+# Testing & Browser Automation artifacts
+.playwright-mcp/
+.tempmediaStorage/
+test-results/
+playwright-report/
+blob-report/
+
+# IDE & Editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*

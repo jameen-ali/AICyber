@@ -1,0 +1,378 @@
+[
+  {
+    "id": "41f0483c-13bb-460e-96b0-2fe95ce7e89b",
+    "timestamp": "2026-10-02T10:42:53.401920+00:00",
+    "analysis_type": "text",
+    "verdict": "SAFE",
+    "risk_score": 33.84,
+    "engine": "Multinomial Naive Bayes",
+    "input_reference": "Hey, are we still meeting for lunch at 1 PM today?",
+    "evidence": {
+      "safe_probability": 66.16,
+      "threat_probability": 33.84
+    }
+  },
+  {
+    "id": "b850b533-f27a-4f09-aacd-be09beba017b",
+    "timestamp": "2026-10-02T10:44:37.160359+00:00",
+    "analysis_type": "text",
+    "verdict": "THREAT",
+    "risk_score": 69.8,
+    "engine": "Multinomial Naive Bayes",
+    "input_reference": "URGENT: Your account has been suspended. Verify immediately at http://bit.ly/ban...",
+    "evidence": {
+      "safe_probability": 30.2,
+      "threat_probability": 69.8
+    }
+  },
+  {
+    "id": "5ee29100-c867-48dd-a771-25878ec767b0",
+    "timestamp": "2026-10-02T10:46:49.363861+00:00",
+    "analysis_type": "url",
+    "verdict": "THREAT",
+    "risk_score": 98.0,
+    "engine": "Random Forest Ensemble",
+    "input_reference": "http://secure-login-bank-verification.com/update",
+    "evidence": {
+      "url_length": 48,
+      "dot_count": 1,
+      "hyphen_count": 3,
+      "is_ip": 0,
+      "has_at_symbol": 0
+    }
+  },
+  {
+    "id": "a84995c4-b850-48dc-8b0f-81fd50fde562",
+    "timestamp": "2026-10-02T11:25:30.361439+00:00",
+    "analysis_type": "url",
+    "verdict": "THREAT",
+    "risk_score": 98.0,
+    "engine": "Random Forest Ensemble",
+    "input_reference": "http://secure-login-bank-verification.com/update",
+    "evidence": {
+      "url_length": 48,
+      "dot_count": 1,
+      "hyphen_count": 3,
+      "is_ip": 0,
+      "has_at_symbol": 0
+    }
+  },
+  {
+    "id": "58a1a6d9-d345-41b9-b94d-a3d816cfc11e",
+    "timestamp": "2026-10-02T11:27:33.875265+00:00",
+    "analysis_type": "text",
+    "verdict": "THREAT",
+    "risk_score": 64.9,
+    "engine": "Multinomial Naive Bayes",
+    "input_reference": "URGENT: Your account has been suspended. Verify immediately.",
+    "evidence": {
+      "safe_probability": 35.1,
+      "threat_probability": 64.9
+    }
+  },
+  {
+    "id": "978b56a3-b117-47f8-8caa-67962a545d5a",
+    "timestamp": "2026-10-02T11:30:37.659283+00:00",
+    "analysis_type": "email",
+    "verdict": "THREAT",
+    "risk_score": 67.55,
+    "engine": "Multinomial Naive Bayes + URL Structural Analysis",
+    "input_reference": "From: fake@phishing-bank.com | Subject: Urgent Account Verification Required",
+    "evidence": {
+      "sender": "fake@phishing-bank.com",
+      "subject": "Urgent Account Verification Required",
+      "safe_probability": 32.45,
+      "threat_probability": 67.55,
+      "detected_urls": 1,
+      "url_analyses": [
+        {
+          "url": "http://secure-login-bank.com/verify",
+          "risk_score": 52.0,
+          "verdict": "THREAT",
+          "features": {
+            "url_length": 35,
+            "dot_count": 1,
+            "hyphen_count": 2,
+            "is_ip": 0,
+            "has_at_symbol": 0
+          }
+        }
+      ]
+    }
+  },
+  {
+    "id": "144ca1e3-c1f0-4ba1-a57b-ea272bd93712",
+    "timestamp": "2026-10-02T11:39:52.685738+00:00",
+    "analysis_type": "transaction",
+    "verdict": "SUSPICIOUS",
+    "risk_score": 30.4,
+    "engine": "Isolation Forest",
+    "input_reference": "Txn \u20b92,500.00 (web/online_purchase)",
+    "evidence": {
+      "amount": 2500.0,
+      "previous_amount": 450.0,
+      "amount_difference": 2050.0,
+      "amount_ratio": 5.54,
+      "transaction_hour": 14,
+      "account_age_days": 365.0,
+      "recent_transaction_count": 3,
+      "international": false,
+      "channel": "web",
+      "transaction_type": "online_purchase",
+      "location": "India",
+      "anomaly_score": 0.1086,
+      "contributing_factors": []
+    }
+  },
+  {
+    "id": "7768bac9-5975-400c-a1d8-96b313f7bfee",
+    "timestamp": "2026-10-02T11:39:58.890301+00:00",
+    "analysis_type": "transaction",
+    "verdict": "SAFE",
+    "risk_score": 13.5,
+    "engine": "Isolation Forest",
+    "input_reference": "Txn \u20b9400.00 (web/online_purchase)",
+    "evidence": {
+      "amount": 400.0,
+      "previous_amount": 380.0,
+      "amount_difference": 20.0,
+      "amount_ratio": 1.05,
+      "transaction_hour": 14,
+      "account_age_days": 400.0,
+      "recent_transaction_count": 2,
+      "international": false,
+      "channel": "web",
+      "transaction_type": "online_purchase",
+      "location": "India",
+      "anomaly_score": 0.203,
+      "contributing_factors": [
+        "Transaction parameters conform closely to normal baseline distributions."
+      ]
+    }
+  },
+  {
+    "id": "101300c6-6cc3-4a2e-a777-be0edc9fe5b5",
+    "timestamp": "2026-10-02T11:40:03.882763+00:00",
+    "analysis_type": "transaction",
+    "verdict": "HIGH RISK",
+    "risk_score": 78.8,
+    "engine": "Isolation Forest",
+    "input_reference": "Txn \u20b995,000.00 (web/transfer)",
+    "evidence": {
+      "amount": 95000.0,
+      "previous_amount": 300.0,
+      "amount_difference": 94700.0,
+      "amount_ratio": 315.61,
+      "transaction_hour": 3,
+      "account_age_days": 5.0,
+      "recent_transaction_count": 35,
+      "international": true,
+      "channel": "web",
+      "transaction_type": "transfer",
+      "location": "Cayman Islands",
+      "anomaly_score": -0.1598,
+      "contributing_factors": [
+        "High transaction volume (\u20b995,000.00) deviates from standard personal baseline.",
+        "Significant difference (+\u20b994,700.00) compared to previous transaction amount.",
+        "Transaction is 315.6x higher than recent baseline.",
+        "Transaction occurred during off-peak night hours (03:00).",
+        "Elevated transaction velocity (35 transactions in recent period).",
+        "Cross-border / international transaction flagged.",
+        "Young account profile (5 days active)."
+      ]
+    }
+  },
+  {
+    "id": "ecfe5b2e-b8ff-4ac7-9d42-cc0078f3d78b",
+    "timestamp": "2026-10-02T11:40:08.980120+00:00",
+    "analysis_type": "transaction",
+    "verdict": "HIGH RISK",
+    "risk_score": 78.8,
+    "engine": "Isolation Forest",
+    "input_reference": "Txn \u20b995,000.00 (web/transfer)",
+    "evidence": {
+      "amount": 95000.0,
+      "previous_amount": 300.0,
+      "amount_difference": 94700.0,
+      "amount_ratio": 315.61,
+      "transaction_hour": 3,
+      "account_age_days": 5.0,
+      "recent_transaction_count": 35,
+      "international": true,
+      "channel": "web",
+      "transaction_type": "transfer",
+      "location": "Cayman Islands",
+      "anomaly_score": -0.1598,
+      "contributing_factors": [
+        "High transaction volume (\u20b995,000.00) deviates from standard personal baseline.",
+        "Significant difference (+\u20b994,700.00) compared to previous transaction amount.",
+        "Transaction is 315.6x higher than recent baseline.",
+        "Transaction occurred during off-peak night hours (03:00).",
+        "Elevated transaction velocity (35 transactions in recent period).",
+        "Cross-border / international transaction flagged.",
+        "Young account profile (5 days active)."
+      ]
+    }
+  },
+  {
+    "id": "102c8fe8-d855-452a-bfbc-29a624e65ab0",
+    "timestamp": "2026-10-02T11:50:17.644485+00:00",
+    "analysis_type": "transaction",
+    "verdict": "SAFE",
+    "risk_score": 13.2,
+    "engine": "Isolation Forest",
+    "input_reference": "Txn INR 450.00 (web/online_purchase)",
+    "evidence": {
+      "amount": 450.0,
+      "previous_amount": 380.0,
+      "amount_difference": 70.0,
+      "amount_ratio": 1.18,
+      "transaction_hour": 14,
+      "account_age_days": 365.0,
+      "recent_transaction_count": 2,
+      "international": false,
+      "channel": "web",
+      "transaction_type": "online_purchase",
+      "location": "India",
+      "anomaly_score": 0.2042,
+      "contributing_factors": [
+        "Transaction parameters conform closely to normal baseline distributions."
+      ]
+    }
+  },
+  {
+    "id": "b859210b-9968-4239-b432-493d3a4fe607",
+    "timestamp": "2026-10-02T11:51:03.201653+00:00",
+    "analysis_type": "transaction",
+    "verdict": "SUSPICIOUS",
+    "risk_score": 63.8,
+    "engine": "Isolation Forest",
+    "input_reference": "Txn INR 85,000.00 (web/transfer)",
+    "evidence": {
+      "amount": 85000.0,
+      "previous_amount": 450.0,
+      "amount_difference": 84550.0,
+      "amount_ratio": 188.47,
+      "transaction_hour": 14,
+      "account_age_days": 365.0,
+      "recent_transaction_count": 3,
+      "international": false,
+      "channel": "web",
+      "transaction_type": "transfer",
+      "location": "India",
+      "anomaly_score": -0.0766,
+      "contributing_factors": [
+        "High transaction volume (INR 85,000.00) deviates from standard personal baseline.",
+        "Significant difference (+INR 84,550.00) compared to previous transaction amount.",
+        "Transaction is 188.5x higher than recent baseline."
+      ]
+    }
+  },
+  {
+    "id": "52cc96c8-8e09-4f19-b97f-3f7047368514",
+    "timestamp": "2026-10-02T11:51:25.721971+00:00",
+    "analysis_type": "transaction",
+    "verdict": "SUSPICIOUS",
+    "risk_score": 53.6,
+    "engine": "Isolation Forest",
+    "input_reference": "Txn INR 3,500.00 (web/online_purchase)",
+    "evidence": {
+      "amount": 3500.0,
+      "previous_amount": 1500.0,
+      "amount_difference": 2000.0,
+      "amount_ratio": 2.33,
+      "transaction_hour": 2,
+      "account_age_days": 120.0,
+      "recent_transaction_count": 48,
+      "international": false,
+      "channel": "web",
+      "transaction_type": "online_purchase",
+      "location": "India",
+      "anomaly_score": -0.0199,
+      "contributing_factors": [
+        "Transaction occurred during off-peak night hours (02:00).",
+        "Elevated transaction velocity (48 transactions in recent period)."
+      ]
+    }
+  },
+  {
+    "id": "0b6be393-62a9-45e9-945f-8608fb9c77c1",
+    "timestamp": "2026-10-02T11:51:43.448376+00:00",
+    "analysis_type": "transaction",
+    "verdict": "SUSPICIOUS",
+    "risk_score": 64.6,
+    "engine": "Isolation Forest",
+    "input_reference": "Txn INR 42,000.00 (mobile/transfer)",
+    "evidence": {
+      "amount": 42000.0,
+      "previous_amount": 300.0,
+      "amount_difference": 41700.0,
+      "amount_ratio": 139.53,
+      "transaction_hour": 3,
+      "account_age_days": 8.0,
+      "recent_transaction_count": 15,
+      "international": true,
+      "channel": "mobile",
+      "transaction_type": "transfer",
+      "location": "Cyprus",
+      "anomaly_score": -0.0814,
+      "contributing_factors": [
+        "High transaction volume (INR 42,000.00) deviates from standard personal baseline.",
+        "Significant difference (+INR 41,700.00) compared to previous transaction amount.",
+        "Transaction is 139.5x higher than recent baseline.",
+        "Transaction occurred during off-peak night hours (03:00).",
+        "Elevated transaction velocity (15 transactions in recent period).",
+        "Cross-border / international transaction flagged.",
+        "Young account profile (8 days active)."
+      ]
+    }
+  },
+  {
+    "id": "64798ec3-5a4f-4516-8c01-dbd74eae5187",
+    "timestamp": "2026-10-02T11:52:01.118831+00:00",
+    "analysis_type": "transaction",
+    "verdict": "HIGH RISK",
+    "risk_score": 87.0,
+    "engine": "Isolation Forest",
+    "input_reference": "Txn INR 110,000.00 (mobile/transfer)",
+    "evidence": {
+      "amount": 110000.0,
+      "previous_amount": 200.0,
+      "amount_difference": 109800.0,
+      "amount_ratio": 547.26,
+      "transaction_hour": 3,
+      "account_age_days": 2.0,
+      "recent_transaction_count": 65,
+      "international": true,
+      "channel": "mobile",
+      "transaction_type": "transfer",
+      "location": "Cyprus",
+      "anomaly_score": -0.2055,
+      "contributing_factors": [
+        "High transaction volume (INR 110,000.00) deviates from standard personal baseline.",
+        "Significant difference (+INR 109,800.00) compared to previous transaction amount.",
+        "Transaction is 547.3x higher than recent baseline.",
+        "Transaction occurred during off-peak night hours (03:00).",
+        "Elevated transaction velocity (65 transactions in recent period).",
+        "Cross-border / international transaction flagged.",
+        "Young account profile (2 days active)."
+      ]
+    }
+  },
+  {
+    "id": "ee0561ba-d609-4bf1-afc9-d36983d9b5f2",
+    "timestamp": "2026-10-02T11:53:59.587225+00:00",
+    "analysis_type": "url",
+    "verdict": "THREAT",
+    "risk_score": 98.0,
+    "engine": "Random Forest Ensemble",
+    "input_reference": "http://paypal-security-update.com/login@verify",
+    "evidence": {
+      "url_length": 46,
+      "dot_count": 1,
+      "hyphen_count": 2,
+      "is_ip": 0,
+      "has_at_symbol": 1
+    }
+  }
+]
